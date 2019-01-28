@@ -1,0 +1,4 @@
+com\optile\jobs\CSVJob.class
+com\optile\jobs\DWHjob.class
+com\optile\jobs\EmailerJob.class
+com\optile\jobs\helper\EmailJobHelper.class
