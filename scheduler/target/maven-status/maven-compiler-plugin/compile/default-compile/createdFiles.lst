@@ -1,0 +1,8 @@
+com\manager\job\rest\JobSummitedResponse.class
+com\manager\job\api\docs\SwaggerConfig.class
+com\manager\job\controller\JobManagerRestController.class
+com\manager\job\rest\JobInfoResponse.class
+com\manager\job\service\JobManagerService.class
+com\manager\job\Application.class
+com\manager\job\service\impl\JobManagerServiceImpl.class
+com\manager\job\service\impl\Util.class

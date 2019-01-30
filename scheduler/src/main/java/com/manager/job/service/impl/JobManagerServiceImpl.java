@@ -15,7 +15,6 @@ import java.util.concurrent.TimeoutException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -31,8 +30,6 @@ public class JobManagerServiceImpl implements JobManagerService {
 
 	@Autowired
 	Environment env;
-	
-	
 
 	/**
 	 * Keep The Status of All Submitted Jobs
@@ -58,7 +55,7 @@ public class JobManagerServiceImpl implements JobManagerService {
 	@Async
 	public void sumitJob(Job job) {
 		logger.info("Job Queued ... " + job.getName() + " at " + System.currentTimeMillis());
-		logger.info("Current Queue " + todayJobQueue);
+		loadTodaysJobFromDB();
 
 		if (job.isImmediateJob()) {
 			summitedJobStatus.put(job.getName(), immediateJobExecutor.submit(job));
@@ -80,15 +77,24 @@ public class JobManagerServiceImpl implements JobManagerService {
 	}
 
 	/**
+	 * This will load all SystemDate Jobs From DB or from Persistent layer
+	 * and Add to todays priority Queue
+	 */
+	private void loadTodaysJobFromDB() {
+		// TODO Auto-generated method stub
+
+	}
+
+	/**
 	 * This will start the Jobs Immediately, will not use Queue for execution of
 	 * Such Jobs
 	 */
-	ExecutorService immediateJobExecutor = Executors.newFixedThreadPool(5);
+	private ExecutorService immediateJobExecutor = Executors.newFixedThreadPool(5);
 
-	ExecutorService sequenceExecutor = Executors.newFixedThreadPool(2);
-	
-	private static int maxJobs=5;
-	
+	private ExecutorService sequenceExecutor = Executors.newFixedThreadPool(2);
+
+	private static int maxJobs = 5;
+
 	private static int sumittedJobs = 0;
 
 	private Thread jobPollingThread = new Thread(() -> {
@@ -132,16 +138,6 @@ public class JobManagerServiceImpl implements JobManagerService {
 		job.setScheduledStartTime(new Date(System.currentTimeMillis()));
 		job.setJobRollable(true);
 		todayJobQueue.add(job);
-	}
-
-
-	public Map<String, Future<String>> getJobsByStatus(String status, boolean isFutureJobs) {
-		return summitedJobStatus;
-	}
-
-	@Override
-	public Map<String, Future<String>> getJobsByStatus(String status) {
-		return getJobsByStatus(status, true);
 	}
 
 	@Override

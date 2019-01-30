@@ -1,4 +1,5 @@
-C:\Users\DineshKori\optile\JobImplementor\src\main\java\com\optile\jobs\helper\EmailJobHelper.java
-C:\Users\DineshKori\optile\JobImplementor\src\main\java\com\optile\jobs\EmailerJob.java
-C:\Users\DineshKori\optile\JobImplementor\src\main\java\com\optile\jobs\DWHjob.java
-C:\Users\DineshKori\optile\JobImplementor\src\main\java\com\optile\jobs\CSVJob.java
+C:\Users\DineshKori\githibfinal\optile\JobImplementor\src\main\java\com\optile\jobs\FileReaderManagerServiceImpl.java
+C:\Users\DineshKori\githibfinal\optile\JobImplementor\src\main\java\com\optile\jobs\CSVServiceImpl.java
+C:\Users\DineshKori\githibfinal\optile\JobImplementor\src\main\java\com\optile\jobs\DWHManagerServiceImpl.java
+C:\Users\DineshKori\githibfinal\optile\JobImplementor\src\main\java\com\optile\jobs\helper\EmailJobHelper.java
+C:\Users\DineshKori\githibfinal\optile\JobImplementor\src\main\java\com\optile\jobs\EmailManagerServiceImpl.java

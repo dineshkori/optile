@@ -1,0 +1,4 @@
+com\manager\job\service\impl\UtilTest.class
+com\manager\job\service\impl\JobManagerServiceImplTest.class
+com\manager\job\controller\JobManagerRestControllerTest.class
+com\manager\job\ApplicationTest.class

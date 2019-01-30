@@ -15,11 +15,12 @@ import com.optile.exception.JobExecutionException;
 public interface IJobshelper {
 
 	/**
-	 * Can Do some initialization for task like file location, Emailer list, Emailer
-	 * message etc
+	 * Can do some initialization for task like file location, Emailer list, Emailer
+	 * message etc This is used to set some configuration for this Job and should be
+	 * using some properties file so that each Job could use specific configuration
 	 * 
 	 * @throws JobExecutionException
 	 */
-	public void initialJobContext() throws JobExecutionException;
+	public void initialJobContext(String configFileName) throws JobExecutionException;
 
 }

@@ -30,12 +30,4 @@ public interface JobManagerService {
 	 */
 	public void sumitJobImmediately(Job jobInfo);
 
-
-	/**
-	 * Will return The Jobs of given Status
-	 * 
-	 * @return
-	 */
-	public Map<String, Future<String>> getJobsByStatus(String Status);
-
 }

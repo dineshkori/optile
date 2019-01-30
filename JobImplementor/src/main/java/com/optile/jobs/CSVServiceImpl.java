@@ -2,6 +2,7 @@ package com.optile.jobs;
 
 import com.optile.base.job.Job;
 import com.optile.exception.JobExecutionException;
+import com.optile.jobs.helper.CSVJobHelper;
 
 /**
  * Jobs to Read CSV and perform some Operation
@@ -43,11 +44,17 @@ public class CSVServiceImpl extends Job {
 	}
 
 	/**
+	 * This is used to Set some configuration for this Job and should be using some
+	 * properties file so that each Job could use specific configuration
+	 * 
 	 * @throws JobExecutionException
 	 */
-	public void initialJobContext() throws JobExecutionException {
+	public void initialJobContext(String configFileName) throws JobExecutionException {
 		if (this.isConfigureable()) {
-			// TODO Do Configuration before running this job
+			// TODO Read JOB Specific initialization configuration from read from
+			// configfileName and add to be job Definition
+			CSVJobHelper helper = new CSVJobHelper();
+			helper.initialJobContext(configFileName);
 		}
 	}
 

@@ -12,7 +12,8 @@ import com.optile.exception.JobExecutionException;
  */
 public class EmailJobHelper implements IJobshelper {
 
-	public void initialJobContext() throws JobExecutionException {
+
+	public void initialJobContext(String configFileName) throws JobExecutionException {
 		// TODO Auto-generated method stub
 		
 	}
