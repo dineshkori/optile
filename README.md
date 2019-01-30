@@ -6,3 +6,6 @@ JAVA_HOME - JDK home path on your machine.
 MAVEN_HOME- Maven home, 2.2.x version and above
 
 PROJECT_HOME - Location of your downloded project folder
+
+
+##################### For More Details please look "Technical_Guide_JobManagementServices.pdf"
