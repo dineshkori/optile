@@ -49,12 +49,12 @@ public class CSVServiceImpl extends Job {
 	 * 
 	 * @throws JobExecutionException
 	 */
-	public void initialJobContext(String configFileName) throws JobExecutionException {
+	public void initialJobContext() throws JobExecutionException {
 		if (this.isConfigureable()) {
 			// TODO Read JOB Specific initialization configuration from read from
 			// configfileName and add to be job Definition
 			CSVJobHelper helper = new CSVJobHelper();
-			helper.initialJobContext(configFileName);
+			helper.initialJobContext(this.getConfigFile());
 		}
 	}
 

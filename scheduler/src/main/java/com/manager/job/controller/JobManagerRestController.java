@@ -1,5 +1,8 @@
 package com.manager.job.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +24,7 @@ public class JobManagerRestController {
 
 	@Autowired
 	Util util;
-	
+
 	@Autowired
 	JobManagerService jobManager;
 
@@ -44,12 +47,22 @@ public class JobManagerRestController {
 	 */
 
 	@RequestMapping(value = "/jobs/api/job", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
-	public JobSummitedResponse sumitJobofType(String type, int jobpriority) {
+	public JobSummitedResponse sumitJobofType(String type, int jobpriority, boolean isConfigureable, String configFile,
+			String startTime) {
 		JobSummitedResponse response = new JobSummitedResponse();
 		Job job = util.getInstance(type);
 		job.setName(type + "@" + System.currentTimeMillis());
 		job.setPriority(jobpriority);
+		job.setConfigureable(isConfigureable);
+		job.setConfigFile(configFile);
+		try {
+			job.setStartTime(new SimpleDateFormat("dd/MM/yyyy").parse(startTime));
+		} catch (ParseException e) {
+			logger.error("Invalid Date");
+			e.printStackTrace();
+		}
 		jobManager.sumitJob(job);
+
 		response.setStatus("SUCESS");
 		return response;
 	}

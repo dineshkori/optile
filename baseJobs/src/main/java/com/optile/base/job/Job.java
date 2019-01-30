@@ -69,6 +69,16 @@ public abstract class Job implements IJobs, Comparable<Job>, Callable<String> {
 
 	private boolean isImmediateJob;
 
+	private String configFile;
+
+	public String getConfigFile() {
+		return configFile;
+	}
+
+	public void setConfigFile(String configFile) {
+		this.configFile = configFile;
+	}
+
 	public Date getTimeStarted() {
 		return timeStarted;
 	}
